@@ -1,0 +1,28 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout the code
+      uses: actions/checkout@v3
+    - name: Build/Compile
+      run: docker build . --file Dockerfile --tag abc
+    - name: Test
+      run: |
+       make test
+    - name: Publish Artefacts
+      uses: docker/build-push-action@v2
+      with:
+       context: .
+       push: true
+       tags: krishnamohanpandey/abc
