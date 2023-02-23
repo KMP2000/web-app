@@ -28,12 +28,5 @@ jobs:
     - name: Build and push Docker image
       uses: docker/build-push-action@v4
       with:
-        context: .
         push: true
-        tags: ${{ steps.meta.outputs.tags }}
-        labels: ${{ steps.meta.outputs.labels }}
-    - name: get the image
-      run: sudo docker run -d -p 3000:3000 krishnamohanpandey/testapp
-    - name: Get from service
-      run: http://localhost:3000/
-    
+        tags: krishnamohanpandey/testapp:latest
