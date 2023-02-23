@@ -11,7 +11,11 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    services:
+      service-name-1:
+        image: krishnamohanpandey:testapp
+        ports:
+           - 3001:3000
     steps:
     - name: Checkout the code
       uses: actions/checkout@v3
@@ -32,3 +36,5 @@ jobs:
         push: true
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
+    - name: Get from service
+      run: http://localhost:3001/
