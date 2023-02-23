@@ -11,11 +11,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    services:
-      service-name-1:
-        image: krishnamohanpandey:testapp
-        ports:
-           - 3001:3000
+    
     steps:
     - name: Checkout the code
       uses: actions/checkout@v3
@@ -36,5 +32,8 @@ jobs:
         push: true
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
+    - name: get the image
+      run: sudo docker run -d -p 3000:3000 krishnamohanpandey/testapp
     - name: Get from service
-      run: http://localhost:3001/
+      run: http://localhost:3000/
+    
