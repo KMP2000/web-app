@@ -26,7 +26,7 @@ jobs:
         push: true
         tags: krishnamohanpandey/testapp:latest
     - name: Deploy to Kubernetes cluster
-      uses: actions-hub/kubectl-action@master
+      uses: appleboy/kubectl-action@master
       with:
        args: apply -f deployment.yaml
       env:
