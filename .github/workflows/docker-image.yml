@@ -29,4 +29,4 @@ jobs:
       uses: tale/kubectl-action@v1
       with:
         base64-kube-config: ${{ secrets.KUBECONFIG }}
-    - run: kubectl apply -f deployment.yaml
+    - run: apply -f deployment.yaml
