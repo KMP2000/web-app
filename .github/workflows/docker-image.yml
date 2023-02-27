@@ -29,4 +29,7 @@ jobs:
       uses: steebchen/kubectl@v2.0.0   #tale/kubectl-action@v1  #actions-hub/kubectl@master
       with:
         config: ${{ secrets.KUBE_CONFIG }}
-        command: apply -f deployment.yaml
+    - name: Deploy to cluster
+      run: |
+        kubectl apply -f service.yaml
+        kubectl apply -f deployment.yaml
