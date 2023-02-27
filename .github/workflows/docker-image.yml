@@ -28,6 +28,5 @@ jobs:
     - name: Deploy to Kubernetes cluster
       uses: tale/kubectl-action@v1
       with:
-       args: apply -f deployment.yaml
-      env:
-       KUBECONFIG: ${{ secrets.KUBECONFIG }}
+        base64-kube-config: ${{ secrets.KUBE_CONFIG }}
+    - run: kubectl apply -f deployment.yaml
