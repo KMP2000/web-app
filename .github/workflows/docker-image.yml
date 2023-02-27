@@ -30,6 +30,6 @@ jobs:
       with:
         config: ${{ secrets.KUBE_CONFIG }}
         command: | 
-         apply -f service.yaml
-         apply -f deployment.yaml
+         kubectl apply -f service.yaml
+         kubectl apply -f deployment.yaml
    
