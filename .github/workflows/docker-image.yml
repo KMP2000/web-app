@@ -26,8 +26,7 @@ jobs:
         push: true
         tags: krishnamohanpandey/testapp:latest
     - name: Deploy to Kubernetes cluster
-      uses: tale/kubectl-action@v1
+      uses: steebchen/kubectl@v2.0.0   #tale/kubectl-action@v1  #actions-hub/kubectl@master
       with:
-       args: apply -f deployment.yaml
-      env:
-       KUBECONFIG: ${{ secrets.KUBECONFIG }}
+        config: ${{ secrets.KUBE_CONFIG }}
+        command: apply -f deployment.yaml
