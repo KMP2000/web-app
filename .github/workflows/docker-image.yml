@@ -28,5 +28,5 @@ jobs:
     - name: Deploy to Kubernetes cluster
       uses: steebchen/kubectl@v2.0.0   #tale/kubectl-action@v1  #actions-hub/kubectl@master
       with:
-        config: ${{ secrets.KUBE_CONFIG }}
+        config: ${{ secrets.KUBECONFIG }}
         command: apply -f deployment.yaml
